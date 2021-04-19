@@ -1,16 +1,9 @@
 from utils import FileReader
 
-# DATA_FOR_MATPLOTLIB = {
-#     "1000000": {"index": "0.03",  "noindex": "180"},
-#     "2000000": {"index": "0.033",  "noindex": "380"},
-#     "3000000": {"index": "0.039", "noindex": "530"},
-#     "4000000": {"index": "0.03",  "noindex": "580"},
-# }
-
 if __name__ == '__main__':
     import matplotlib.pyplot as plt
     # line 1 points
-    DATA_FOR_MATPLOTLIB = FileReader.read_data()
+    DATA_FOR_MATPLOTLIB = FileReader.read_data(fie_name='app/avr_time_80.csv')
     # line 1 points
     x1 = [int(data["count"]) for data in DATA_FOR_MATPLOTLIB]
     y1 = [float(data["index"]) for data in DATA_FOR_MATPLOTLIB]

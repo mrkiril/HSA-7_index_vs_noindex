@@ -16,9 +16,9 @@ class FileReader:
         return True
 
     @classmethod
-    def read_data(cls):
+    def read_data(cls, fie_name=None):
         results = []
-        with open(cls.file_path) as csvfile:
+        with open(fie_name or cls.file_path) as csvfile:
             reader = csv.DictReader(csvfile)
             for row in reader:
                 results.append(row)

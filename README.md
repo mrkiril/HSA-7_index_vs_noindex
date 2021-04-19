@@ -6,10 +6,8 @@
 ```
 make run
 ``` 
-If you want to use probability cache, 
-set env value `USE_PROBABILISTIC_CACHE: "true"` 
-in `docker-compose.yml`
-
+After it in folder `app` will create file `app/avr_time.csv`.
+You can build plot base on this file and run `python3 main_plot`
 ###To rum Siege
 ```
 make siege

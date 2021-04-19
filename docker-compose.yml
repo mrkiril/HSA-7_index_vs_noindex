@@ -20,65 +20,6 @@ services:
       networks:
         - default
 
-### Redis ################################################
-#    redis:
-#      container_name: redis
-#      image: redis:alpine
-#      environment:
-#        - ALLOW_EMPTY_PASSWORD=yes
-#      ports:
-#        - '6379:6379'
-#      volumes:
-#        - redis-data:/data
-#      networks:
-#        - default
-
-### ITG ###############
-#    telegraf:
-#      image: telegraf:1.15-alpine
-#      volumes:
-#        - ./telegraf/etc/telegraf.conf:/etc/telegraf/telegraf.conf:ro
-#        - /var/run/docker.sock:/var/run/docker.sock:ro
-#        - /var:/var:ro
-#        - /sys:/rootfs/sys:ro
-#        - /proc:/rootfs/proc:ro
-#        - /etc:/rootfs/etc:ro
-#      depends_on:
-#        - influxdb
-#      links:
-#        - influxdb
-#      ports:
-#        - '127.0.0.1:8125:8125/udp'
-#      networks:
-#        - default
-#
-#    influxdb:
-#      image: influxdb:1.8-alpine
-#      env_file: configuration.env
-#      ports:
-#        - '127.0.0.1:8086:8086'
-#      volumes:
-#        - ./:/imports
-#        - influxdb_data:/var/lib/influxdb
-#      networks:
-#        - default
-#
-#    grafana:
-#      image: grafana/grafana:7.2.1
-#      depends_on:
-#        - influxdb
-#      env_file: configuration.env
-#      links:
-#        - influxdb
-#      ports:
-#        - '127.0.0.1:3030:3000'
-#      volumes:
-#        - grafana_data:/var/lib/grafana
-#        - ./grafana/provisioning/:/etc/grafana/provisioning/
-#        - ./grafana/dashboards/:/var/lib/grafana/dashboards/
-#      networks:
-#        - default
-
     king_size_service_7:
       container_name: king_size_service_7
       build:
@@ -103,11 +44,6 @@ services:
         POSTGRES_DB: projector_hw4
         POSTGRES_PORT: 5432
         POSTGRES_HOST: db_postgres
-
-        # redis settings. Required only if AUTH_METHOD equals 'redis'
-        #REDIS_HOST: redis
-        #REDIS_PORT: 6379
-        #CACHE_TIME: 3600  # in seconds. Default is 600 sec (10 min)
 
       links:
         - db_postgres

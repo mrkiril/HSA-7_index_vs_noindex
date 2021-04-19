@@ -40,8 +40,3 @@ format:
 	isort .
 	python3 -m black -l 100 .
 	python3 -m flake8 -v
-
-
-siege:
-	#siege -q -b -r 100000 --concurrent=50 --file=urls.txt
-	siege -v --concurrent=50 --delay=0.55 --file=urls.txt
