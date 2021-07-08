@@ -1,5 +1,5 @@
-### Projector HW 4
-### Use probability cache
+### Projector HW 7
+### Index vs noIndex
 ## Usage
 
 ### RUN  services
